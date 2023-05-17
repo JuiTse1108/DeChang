@@ -1,16 +1,21 @@
-import React from 'react';
-import './Main.css'
-function Main() {
+import React, {useState} from 'react';
+import './main.css'
+
+function Main(props) {
+    const [attribute, setAttribute] = useState('home')
+    function handlePathClick(paths) {
+        if (paths === 'location') {
+            setAttribute('location')
+        } else if (paths === 'menu') {
+            setAttribute('menu')
+        } else {
+            setAttribute('contact')
+        }
+    }
+    
     return ( 
-        <main className='home'>
-            <div className='bannerBox'>
-                <div className='banner'>
-                    <p className='bannerItem'>A Premium</p>
-                    <p className='bannerItem'>And Authentic</p>
-                    <p className='bannerItem'>SteakHouse</p>
-                    <div className="bannerButton">Book A Table</div>
-                </div>
-            </div>
+        <main className={attribute}>
+            {props.content}
         </main>
     );
 }
