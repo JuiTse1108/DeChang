@@ -1,0 +1,183 @@
+.information {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.formElement {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formElement>label {
+    width: 100%;
+    margin: 5px 10px;
+}
+
+.formElement>[for='message'] {
+    width: 80%;
+    margin: 10px auto;
+}
+
+/* .formElement>.datePicker {
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(206, 176, 113);
+    outline: none;
+    margin: auto 10px;
+    width: 100%;
+} */
+
+.formElement>select {
+    width: 100%;
+    margin: auto 10px;
+    padding: 5px;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(206, 176, 113);
+    font-weight: bold;
+}
+
+.formElement>select>option {
+    font-weight: bold;
+}
+
+#message {
+    width: 80%;
+    height: 40vh;
+    resize: none;
+    margin: auto;
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(206, 176, 113);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.formElement>.message {
+    font-size: 14px;
+    font-weight: bold;
+    height: 10px;
+    margin: 10px 15px;
+    color: rgba(255, 0, 0);
+}
+
+.formElement:nth-child(6)>p {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.formBox {
+    width: calc(50% - 20px);
+    margin: auto 10px;
+}
+
+.formBox>label {
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+}
+
+.formBox>input {
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(206, 176, 113);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.formBox>.message {
+    margin: 10px 5px;
+    font-size: 14px;
+    height: 10px;
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+
+label:after {
+    content: '*';
+    color: rgb(255, 0, 0);
+    font-weight: 400;
+}
+
+label[for="address"]::after,
+label[for="upload"]::after,
+label[for="uploadButton"]::after {
+    content: none;
+}
+
+.topic>option,
+.restaurant>option {
+    font-size: 16px;
+}
+
+.topic,
+.restaurant,
+.datetime,
+.name,
+.phone,
+.email,
+.address,
+#message {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.uploadBox {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(206, 176, 113);
+    border-radius: 10px;
+}
+
+.uploadBox:focus {
+    border: 2px solid white;
+    transform: scale(1.01);
+}
+
+.uploadBox input[type='file'] {
+    display: none;
+}
+
+.uploadButton {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: rgb(206, 176, 113);
+    color: rgb(0, 0, 0);
+    padding: 4.2px 10px;
+    border-radius: 0px 7px 7px 0px;
+    cursor: pointer;
+    float: right;
+}
+
+.uploadName {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: auto 10px;
+    margin-right: auto;
+}
+
+.noMessage {
+    visibility: hidden;
+    font-size: 14px;
+    height: 10px;
+    margin: 10px 5px;
+}
+
+.submitButton {
+    font-weight: bold;
+    margin: auto;
+    padding: 10px 20px;
+    outline: none;
+    color: rgb(0, 0, 0);
+    background-color: rgb(206, 176, 113);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    cursor: pointer;
+}
