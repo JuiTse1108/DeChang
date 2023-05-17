@@ -4,7 +4,12 @@ function Main() {
     return ( 
         <main className='home'>
             <div className='bannerBox'>
-                <p className='banner'>24</p>
+                <div className='banner'>
+                    <p className='bannerItem'>A Premium</p>
+                    <p className='bannerItem'>And Authentic</p>
+                    <p className='bannerItem'>SteakHouse</p>
+                    <div className="bannerButton">Book A Table</div>
+                </div>
             </div>
         </main>
     );
