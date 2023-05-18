@@ -1,0 +1,105 @@
+.menuContainer {
+    width: 100%
+}
+
+.title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: logo-sans-serif;
+}
+
+.tabMenu {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabMain,
+.tabDessert,
+.tabCocktails {
+    width: 33%;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 20px;
+    padding: 10px;
+}
+
+.tabMain:hover,
+.tabDessert:hover,
+.tabCocktails:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.mainBox,
+.dessertBox,
+.cocktailsBox {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.mainTitle,
+.dessertTitle,
+.cocktailsTitle {
+    display: inline-block;
+    font-size: 18px;
+    padding-bottom: 2px;
+    margin:30px 10px;
+    color: rgb(255,255,255);
+    border-bottom: 2px solid white;
+}
+
+.mainItem,
+.dessertItem,
+.cocktailsItem {
+    margin: 10px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.mainName,
+.dessertName,
+.cocktailsName {
+    font-size: 20px;
+    font-weight: bold;
+    margin:10px auto
+}
+
+.mainPrice,
+.dessertPrice,
+.cocktailsPrice {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(219, 200, 182);
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.mainNote {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(195, 151, 151);
+    position: absolute;
+    right: 0;
+}
+
+.mainContent,
+.dessertContent,
+.cocktailsContent {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(219, 200, 182)
+}
+
+.menuNote {
+    font-size: 12px;
+    font-weight: bold;
+    width: 80%;
+    margin: auto;
+    line-height: 24px;
+    color: rgb(195, 151, 151);
+}

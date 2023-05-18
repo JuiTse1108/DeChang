@@ -41,7 +41,7 @@ function ContactItem() {
     }
 
     return (
-        <React.Fragment>
+        <div className="contactContainer">
             <div className="information">Information</div>
             <form
                 action="/api"
@@ -186,7 +186,7 @@ function ContactItem() {
                     <input type="submit" value="submit" className="submitButton" />
                 </div>
             </form>
-        </React.Fragment>
+        </div>
     );
 }
 

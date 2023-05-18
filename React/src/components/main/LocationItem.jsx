@@ -11,21 +11,34 @@ function LocationItem() {
     const [currentLocation, setCurrentLocation] = useState({ lat: null, lng: null });
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
+        const getLocation = async () => {
+            try {
+                const position = await getCurrentPosition();
                 const { latitude, longitude } = position.coords;
                 setCurrentLocation({ lat: latitude, lng: longitude });
-            },
-            (error) => {
+            } catch (error) {
                 console.error(error);
             }
-        );
-    }, []);
+        };
 
-    const mapStyle = {
-        width: "600px",
-        height: "400px"
-    }
+        const getCurrentPosition = () => {
+            return new Promise((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(resolve, reject);
+            });
+        };
+
+        const loadMap = async () => {
+            await getLocation();
+        };
+
+        // 偵聽地圖載入完成事件
+        window.addEventListener("load", loadMap);
+
+        return () => {
+            // 清除事件監聽器
+            window.removeEventListener("load", loadMap);
+        };
+    }, []);
 
     const center = {
         lat: currentLocation.lat,
@@ -33,17 +46,18 @@ function LocationItem() {
     }
 
     return (
-        <React.Fragment>
+        <div className='mapContainer'>
             <LoadScript googleMapsApiKey={apiKey}>
                 <GoogleMap
-                    mapContainerStyle={mapStyle}
                     center={currentLocation}
                     zoom={10}
+                    id='map'
+                    onLoad={() => { }}
                 >
-                    {/* <Marker position={currentLocation} /> */}
+                    {currentLocation.lat && currentLocation.lng && <Marker position={currentLocation} />}
                 </GoogleMap>
             </LoadScript>
-        </React.Fragment >
+        </div>
     );
 }
 
