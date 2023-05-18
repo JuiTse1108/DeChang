@@ -1,3 +1,21 @@
 .homeContainer {
     width: 100%;
 }
+
+.cardBox {
+    display: flex;
+    border: 1px solid white;
+}
+
+.imgBox {
+    width: 50%;
+}
+
+.cardImage {
+    width: 100%;
+}
+
+.textBox {
+    width: 50%;
+    border: 1px solid white;
+}
