@@ -120,7 +120,6 @@ label[for="uploadButton"]::after {
 
 .topic,
 .restaurant,
-.datetime,
 .name,
 .phone,
 .email,
@@ -128,6 +127,29 @@ label[for="uploadButton"]::after {
 #message {
     font-weight: bold;
     font-size: 16px;
+}
+
+.datetimeContainer {
+    position: relative;
+}
+
+.datetimeContainer>.bi-calendar-event {
+    position: absolute;
+    top: 47.5px;
+    right: 10px;
+}
+
+.bi-calendar-event {
+    cursor: pointer;
+}
+
+.datetime::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.datetime {
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .uploadBox {

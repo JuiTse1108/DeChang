@@ -3,13 +3,11 @@ import { useForm } from "react-hook-form";
 import "./ContactItem.css"
 
 function ContactItem() {
-    //當前時間
-
     //表單驗證
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
-        defaultValues: {
+        // defaultValues: {
 
-        }
+        // }
     });
 
     //將使用者輸入的資料存在sessionStorage
@@ -49,8 +47,11 @@ function ContactItem() {
 
     function handlePhoneInput(event) {
         const Value = event.target.value
-        setPhone(Value)
-        sessionStorage.setItem('phone', Value)
+        if (/^\d*$/.test(Value)) {
+            setPhone(Value)
+            sessionStorage.setItem('phone', Value)
+        }
+        
     }
 
     function handleEmailInput(event) {
@@ -126,29 +127,28 @@ function ContactItem() {
                         onChange={handleRestaurantInput}
                     >
                         <option value=""></option>
-                        <option value="1"></option>
-                        <option value="2"></option>
-                        <option value="3"></option>
+                        <option value="台北101店">台北101店</option>
+                        <option value="新北新板店">新北新板店</option>
+                        <option value="台中中港店">台中中港店</option>
+                        <option value="高雄夢時代店">高雄夢時代店</option>
                     </select>
                     <p className="message">{errors.restaurant?.message}</p>
                 </div>
 
                 <div className="formElement">
-                    <div className="formBox">
-                        {/* <div className="datetimeContainer"> */}
-                            <label htmlFor="">DateTime</label>
-                            <input
-                                {...register("datetime", {
-                                    required: "請選擇用餐日期"
-                                })}
-                                type="datetime-local"
-                                className="datetime"
-                                value={DateTime}
-                                onChange={handleDateTimeInput}
-                            />
-                            {/* <i class="bi bi-calendar-event"></i> */}
-                            <p className="message">{errors.datetime?.message}</p>
-                        {/* </div> */}
+                    <div className="formBox datetimeContainer">
+                        <label htmlFor="">DateTime</label>
+                        <input
+                            {...register("datetime", {
+                                required: "請選擇用餐日期"
+                            })}
+                            type="datetime-local"
+                            className="datetime"
+                            value={DateTime}
+                            onChange={handleDateTimeInput}
+                        />
+                        <i className="bi bi-calendar-event"></i>
+                        <p className="message">{errors.datetime?.message}</p>
                     </div>
                     <div className="formBox">
                         <label htmlFor="">Name</label>
@@ -183,6 +183,7 @@ function ContactItem() {
                             className="phone"
                             value={Phone}
                             onChange={handlePhoneInput}
+                            pattern="[0]{1}[0-9]{9}"
                             maxLength={10}
                         />
                         <p className="message">{errors.phone?.message}</p>
