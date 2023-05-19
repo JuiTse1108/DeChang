@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./ContactItem.css"
 
@@ -8,33 +8,81 @@ function ContactItem() {
     //表單驗證
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         defaultValues: {
-            topic: "",
-            restaurant: "",
-            datetime: "",
-            name: "",
-            phone: "",
-            email: "",
-            address: "",
-            upload: ""
+
         }
     });
 
-    //上傳的檔名
-    const [uploadName, setuploadName] = useState('未選擇任何檔案');
-    function handlefileChange(event) {
+    //將使用者輸入的資料存在sessionStorage
+    const [Topic, setTopic] = useState(sessionStorage.getItem('topic') || '')
+    const [Restaurant, setRestaurant] = useState(sessionStorage.getItem('restaurant') || '')
+    const [DateTime, setDateTime] = useState(sessionStorage.getItem('datetime') || '')
+    const [Name, setName] = useState(sessionStorage.getItem('name') || '')
+    const [Phone, setPhone] = useState(sessionStorage.getItem('phone') || '')
+    const [Email, setEmail] = useState(sessionStorage.getItem('email') || '')
+    const [Address, setAddress] = useState(sessionStorage.getItem('address') || '')
+    const [UploadName, setUploadName] = useState(sessionStorage.getItem('upload') || '未選擇任何檔案')
+    const [Message, setMessage] = useState(sessionStorage.getItem('message') || '')
+
+    function handleTopicInput(event) {
+        const Value = event.target.value
+        setTopic(Value)
+        sessionStorage.setItem('topic', Value)
+    }
+
+    function handleRestaurantInput(event) {
+        const Value = event.target.value
+        setRestaurant(Value)
+        sessionStorage.setItem('restaurant', Value)
+    }
+
+    function handleDateTimeInput(event) {
+        const Value = event.target.value
+        setDateTime(Value)
+        sessionStorage.setItem('datetime', Value)
+    }
+
+    function handleNameInput(event) {
+        const Value = event.target.value
+        setName(Value)
+        sessionStorage.setItem('name', Value)
+    }
+
+    function handlePhoneInput(event) {
+        const Value = event.target.value
+        setPhone(Value)
+        sessionStorage.setItem('phone', Value)
+    }
+
+    function handleEmailInput(event) {
+        const Value = event.target.value
+        setEmail(Value)
+        sessionStorage.setItem('email', Value)
+
+    }
+
+    function handleAddressInput(event) {
+        const Value = event.target.value
+        setAddress(Value)
+        sessionStorage.setItem('address', Value)
+    }
+
+    function handleUploadInput(event) {
         const file = event.target.files[0];
         if (file) {
-            setuploadName(file.name)
+            setUploadName(file.name)
+            sessionStorage.setItem('upload', file.name)
         } else {
-            setuploadName('未選擇任何檔案');
+            setUploadName('未選擇任何檔案');
         }
     }
 
-    //將使用者輸入的資料存在sessionStorage
-    const [topic, setTopic] = useState('')
-    function handletopicInput(event) {
-        setTopic(event.target.value)
-        sessionStorage.setItem('Topic', event.target.value)
+    const maxLength = 500
+    function handleMessageInput(event) {
+        const Value = event.target.value
+        if (Value.length <= maxLength) {
+            setMessage(Value)
+            sessionStorage.setItem('message', Value)
+        }
     }
 
     return (
@@ -45,6 +93,7 @@ function ContactItem() {
                 onSubmit={handleSubmit((data) => {
                     console.log(data)
                 })}
+            // onClick={handleClick}
             >
                 <div className="formElement">
                     <label htmlFor="">Topic</label>
@@ -54,7 +103,8 @@ function ContactItem() {
                         })}
                         name="topic"
                         className="topic"
-                        onChange={handletopicInput}
+                        onChange={handleTopicInput}
+                        value={Topic}
                     >
                         <option value=""></option>
                         <option value="意見回饋">意見回饋</option>
@@ -72,6 +122,8 @@ function ContactItem() {
                         })}
                         name="restaurant"
                         className="restaurant"
+                        value={Restaurant}
+                        onChange={handleRestaurantInput}
                     >
                         <option value=""></option>
                         <option value="1"></option>
@@ -83,15 +135,20 @@ function ContactItem() {
 
                 <div className="formElement">
                     <div className="formBox">
-                        <label htmlFor="">Date</label>
-                        <input
-                            {...register("datetime", {
-                                required: "請選擇用餐日期"
-                            })}
-                            type="datetime-local"
-                            className="datetime"
-                        />
-                        <p className="message">{errors.datetime?.message}</p>
+                        {/* <div className="datetimeContainer"> */}
+                            <label htmlFor="">DateTime</label>
+                            <input
+                                {...register("datetime", {
+                                    required: "請選擇用餐日期"
+                                })}
+                                type="datetime-local"
+                                className="datetime"
+                                value={DateTime}
+                                onChange={handleDateTimeInput}
+                            />
+                            {/* <i class="bi bi-calendar-event"></i> */}
+                            <p className="message">{errors.datetime?.message}</p>
+                        {/* </div> */}
                     </div>
                     <div className="formBox">
                         <label htmlFor="">Name</label>
@@ -104,7 +161,9 @@ function ContactItem() {
                             })}
                             type="text"
                             className="name"
+                            value={Name}
                             maxLength={50}
+                            onChange={handleNameInput}
                         />
                         <p className="message">{errors.name?.message}</p>
                     </div>
@@ -122,6 +181,8 @@ function ContactItem() {
                             })}
                             type="tel"
                             className="phone"
+                            value={Phone}
+                            onChange={handlePhoneInput}
                             maxLength={10}
                         />
                         <p className="message">{errors.phone?.message}</p>
@@ -135,6 +196,8 @@ function ContactItem() {
                             })}
                             type="email"
                             className="email"
+                            value={Email}
+                            onChange={handleEmailInput}
                         />
                         <p className="message">{errors.email?.message}</p>
                     </div>
@@ -147,20 +210,22 @@ function ContactItem() {
                             {...register("address")}
                             type="text"
                             className="address"
+                            value={Address}
+                            onChange={handleAddressInput}
                         />
                         <p className="noMessage">{errors.email?.message}</p>
                     </div>
                     <div className="formBox">
                         <label htmlFor="upload">Upload</label>
                         <div className="uploadBox" tabIndex="0">
-                            <p className="uploadName">{uploadName}</p>
+                            <p className="uploadName">{UploadName}</p>
                             <label htmlFor="uploadButton" className="uploadButton">上傳檔案</label>
                             <input
                                 {...register("upload")}
                                 type="file"
                                 accept="image/*"
                                 id="uploadButton"
-                                onChange={handlefileChange}
+                                onChange={handleUploadInput}
                             />
                         </div>
                         <p className="noMessage">{errors.email?.message}</p>
@@ -174,7 +239,9 @@ function ContactItem() {
                         })}
                         name="message"
                         id="message"
-                        maxLength={740}
+                        maxLength={maxLength}
+                        value={Message}
+                        onChange={handleMessageInput}
                     >
                     </textarea>
                     <p className="message">{errors.message?.message}</p>
