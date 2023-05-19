@@ -7,7 +7,7 @@ function HomeItem() {
             <div className='cardBox'>
                 <div className='imgBox'>
                     <img
-                        src="./src/templates/image/img1.jpg"
+                        src=""
                         alt=""
                         className='cardImage'
                     />

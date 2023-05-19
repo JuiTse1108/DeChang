@@ -30,6 +30,8 @@
 .tabDessert:hover,
 .tabCocktails:hover {
     opacity: 0.8;
+    /* font-size: 40px; */
+    /* transition: font-size 0.5s ease-in-out; */
     cursor: pointer;
 }
 
@@ -43,12 +45,35 @@
 .mainTitle,
 .dessertTitle,
 .cocktailsTitle {
+    position: relative;
     display: inline-block;
     font-size: 18px;
     padding-bottom: 2px;
-    margin:30px 10px;
-    color: rgb(255,255,255);
+    margin: 30px 10px;
+    color: rgb(255, 255, 255);
+}
+
+.mainTitle::after,
+.dessertTitle::after,
+.cocktailsTitle::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -5px;
     border-bottom: 2px solid white;
+    animation: expand 1s forwards;
+}
+
+@keyframes expand {
+    0% {
+        left: 50%;
+        right: 50%;
+    }
+    100% {
+        left: 0;
+        right: 0;
+    }
 }
 
 .mainItem,
