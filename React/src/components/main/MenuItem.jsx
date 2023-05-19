@@ -59,6 +59,8 @@ function MenuItem() {
                         <p className='mainPrice'>$ 26.95</p>
                         <p className='mainContent'>piedmontese beef, dijon mustard aioli, black truffle caviar, sous vide egg yolk</p>
                     </div>
+                </div>
+                <div className='mainBox'>
                     <div className='mainTitle'>SALAD/SOUP</div>
                     <div className='mainItem'>
                         <p className='mainName'>GOLDEN BEET SALAD</p>
@@ -75,6 +77,15 @@ function MenuItem() {
                         <p className='mainPrice'>$ 19.95</p>
                         <p className='mainNote'>w/ grilled chicken - $ 30.95  |  w/ chilled shrimp - $ 29.95</p>
                         <p className='mainContent'>parmesan cheese frico, garlic croutons, lemon zest</p>
+                    </div>
+                </div>
+                <div className='mainHighlight'>
+                    <div className='mainImageBox'></div>
+                    <div className='mainImageInfo'>
+                        <p className='highlight'>HighLight</p>
+                        <p className='mainImageName'>BEEF WELLINGTON*</p>
+                        <p className='mainImageContent'>potato puree, glazed root vegetables, red wine demi-glace</p>
+                        <p className='mainImagePrice'>$ 72.95</p>
                     </div>
                 </div>
                 <div className='mainBox'>
@@ -140,6 +151,15 @@ function MenuItem() {
     function Dessert() {
         return (
             <React.Fragment>
+                <div className='dessertHighlight'>
+                    <div className='dessertImageBox'></div>
+                    <div className='dessertImageInfo'>
+                        <p className='highlight'>HighLight</p>
+                        <p className='dessertImageName'>STICKY TOFFEE PUDDING</p>
+                        <p className='dessertImageContent'>dulce de leche ice cream</p>
+                        <p className='dessertImagePrice'>$ 15.95</p>
+                    </div>
+                </div>
                 <div className='dessertBox'>
                     <div className='dessertTitle'>Dessert</div>
                     <div className='dessertItem'>
@@ -170,6 +190,15 @@ function MenuItem() {
     function Cocktails() {
         return (
             <React.Fragment>
+                <div className='cocktailsHighlight'>
+                    <div className='cocktailsImageBox'></div>
+                    <div className='cocktailsImageInfo'>
+                        <p className='highlight'>HighLight</p>
+                        <p className='cocktailsImageName'>SMOKE ON THE BLVD</p>
+                        <p className='cocktailsImageContent'>woodford rye, aperol, amaro averna, sweet vermouth, smoked with cherry wood</p>
+                        <p className='cocktailsImagePrice'>$ 21.95</p>
+                    </div>
+                </div>
                 <div className='cocktailsBox'>
                     <div className='cocktailsTitle'>SPECIALTY COCKTAILS</div>
                     <div className='cocktailsItem'>
