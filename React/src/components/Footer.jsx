@@ -34,17 +34,17 @@ function Footer() {
                     <a href="/contact" className="footernavLink">Contact Us</a>
                 </div>
                 <div className="info">
-                    <div className="infoItem"><i class="bi bi-building-fill"></i><a href="/">德昌股份有限公司</a></div>
-                    <div className="infoItem"><i class="bi bi-pin-map"></i>
+                    <div className="infoItem"><i className="bi bi-building-fill"></i><a href="/">德昌股份有限公司</a></div>
+                    <div className="infoItem"><i className="bi bi-pin-map"></i>
                         <a onClick={handleLinkClick}>台北市信義區市府路45號</a></div>
-                    <div className="infoItem"><i class="bi bi-telephone"></i><a href="tel:02-8101-8800">02-8101-8800</a></div>
-                    <div className="infoItem"><i class="bi bi-envelope"></i><a href="mailto:dpo@tfc101.com.tw">dpo@tfc101.com.tw</a></div>
+                    <div className="infoItem"><i className="bi bi-telephone"></i><a href="tel:02-8101-8800">02-8101-8800</a></div>
+                    <div className="infoItem"><i className="bi bi-envelope"></i><a href="mailto:dpo@tfc101.com.tw">dpo@tfc101.com.tw</a></div>
                 </div>
                 <div className='media'>
-                    <a href="https://www.facebook.com" target='_blank' className='mediaItem'><i class="bi bi-facebook"></i></a>
-                    <a href="https://www.instagram.com" target='_blank' className='mediaItem'><i class="bi bi-instagram"></i></a>
-                    <a href="https://www.twitter.com" target='_blank' className='mediaItem'><i class="bi bi-twitter"></i></a>
-                    <a href="https://line.me/zh-hant/" target='_blank' className='mediaItem'><i class="bi bi-line"></i></a>
+                    <a href="https://www.facebook.com" target='_blank' className='mediaItem'><i className="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com" target='_blank' className='mediaItem'><i className="bi bi-instagram"></i></a>
+                    <a href="https://www.twitter.com" target='_blank' className='mediaItem'><i className="bi bi-twitter"></i></a>
+                    <a href="https://line.me/zh-hant/" target='_blank' className='mediaItem'><i className="bi bi-line"></i></a>
                     <div className='copyright'>Dechang Enterprise ©Copyright 2023</div>
                 </div>
             </div>

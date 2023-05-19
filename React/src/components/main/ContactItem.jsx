@@ -1,20 +1,9 @@
-import React,{ useState, useEffect }  from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./ContactItem.css"
 
 function ContactItem() {
     //當前時間
-    // const [currentTime, setcurrentTime] = useState(new Date().toISOString().slice(0, 16));
-
-    // useEffect(() => {
-    //     const time = setInterval( () => {
-    //         updateTime()
-    //     },1000)
-
-    //     return () => {
-    //         clearInterval(time)
-    //     }
-    // },[])
 
     //表單驗證
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
@@ -25,7 +14,8 @@ function ContactItem() {
             name: "",
             phone: "",
             email: "",
-            address: ""
+            address: "",
+            upload: ""
         }
     });
 
@@ -38,6 +28,13 @@ function ContactItem() {
         } else {
             setuploadName('未選擇任何檔案');
         }
+    }
+
+    //將使用者輸入的資料存在sessionStorage
+    const [topic, setTopic] = useState('')
+    function handletopicInput(event) {
+        setTopic(event.target.value)
+        sessionStorage.setItem('Topic', event.target.value)
     }
 
     return (
@@ -57,6 +54,7 @@ function ContactItem() {
                         })}
                         name="topic"
                         className="topic"
+                        onChange={handletopicInput}
                     >
                         <option value=""></option>
                         <option value="意見回饋">意見回饋</option>
@@ -92,9 +90,7 @@ function ContactItem() {
                             })}
                             type="datetime-local"
                             className="datetime"
-                            // defaultValue={now}
                         />
-
                         <p className="message">{errors.datetime?.message}</p>
                     </div>
                     <div className="formBox">
@@ -160,6 +156,7 @@ function ContactItem() {
                             <p className="uploadName">{uploadName}</p>
                             <label htmlFor="uploadButton" className="uploadButton">上傳檔案</label>
                             <input
+                                {...register("upload")}
                                 type="file"
                                 accept="image/*"
                                 id="uploadButton"
