@@ -9,19 +9,24 @@ function HomeItem() {
                     <img src="./src/templates/image/steak.jpg" alt="" />
                 </div>
                 <div className='cardInfo'>
-                    <p className='cardTitle'>Discover</p>
-                    <p className='cardTitle'>Our Story</p>
-                    <p className='cardText'>Uncompromising Quality in Steak</p>
-                    <p className='cardText'>Featuring the Finest USDA Prime Beef</p>
-                    <p className='cardText'>Carefully Selected Australian Filet Mignon</p>
-                    <p className='cardText'>Marinated with Our Exclusive Signature Sauce</p>
-                    <p className='cardText'>An Unparalleled Flavor Experience</p>
-                    <p className='cardText'>Let us reintroduce you to the deliciousness of steak.</p>
+                    <div className='titleBox'>
+                        <p className='cardTitle'>Discover</p>
+                        <p className='cardTitle'>Our Story</p>
+                    </div>
+                    <div className='textBox'>
+                        <p className='cardText'>Uncompromising Quality in Steak</p>
+                        <p className='cardText'>Featuring the Finest USDA Prime Beef</p>
+                        <p className='cardText'>Carefully Selected Australian Filet Mignon</p>
+                        <p className='cardText'>Marinated with Our Exclusive Signature Sauce</p>
+                        <p className='cardText'>An Unparalleled Flavor Experience</p>
+                        <p className='cardText'>Let us reintroduce you to the deliciousness of steak.</p>
+                    </div>
+                    <div className='cardButton'>
+                        <a href='/about'>More About Us</a>
+                    </div>
                 </div>
             </div>
-            <div className='card'>
-                
-            </div>
+            
         </div>
     );
 }
