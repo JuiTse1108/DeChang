@@ -26,14 +26,6 @@
     margin: 10px auto;
 }
 
-/* .formElement>.datePicker {
-    background-color: rgb(0, 0, 0);
-    border: 2px solid rgb(206, 176, 113);
-    outline: none;
-    margin: auto 10px;
-    width: 100%;
-} */
-
 .formElement>select {
     width: 100%;
     margin: auto 10px;

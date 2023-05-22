@@ -250,23 +250,29 @@ function MenuItem() {
         <div className='menuContainer'>
             <div className='title'>Our Menu</div>
             <div className='tabMenu'>
-                <div
-                    className={activeTab === 'tabMain' ? 'tabMain active' : 'tabMain'}
-                    onClick={handleTabClick}
-                    value='tabMain'
-                >Main
+                <div className='menuBox'>
+                    <span
+                        className={activeTab === 'tabMain' ? 'tabMain active' : 'tabMain'}
+                        onClick={handleTabClick}
+                        value='tabMain'
+                    >Main
+                    </span>
                 </div>
-                <div
-                    className={activeTab === 'tabDessert' ? 'tabDessert active' : 'tabDessert'}
-                    onClick={handleTabClick}
-                    value='tabDessert'
-                >Dessert
+                <div className='menuBox'>
+                    <span
+                        className={activeTab === 'tabDessert' ? 'tabDessert active' : 'tabDessert'}
+                        onClick={handleTabClick}
+                        value='tabDessert'
+                    >Dessert
+                    </span>
                 </div>
-                <div
-                    className={activeTab === 'tabCocktails' ? 'tabCocktails active' : 'tabCocktails'}
-                    onClick={handleTabClick}
-                    value='tabCocktails'
-                >Cocktails
+                <div className='menuBox'>
+                    <span
+                        className={activeTab === 'tabCocktails' ? 'tabCocktails active' : 'tabCocktails'}
+                        onClick={handleTabClick}
+                        value='tabCocktails'
+                    >Cocktails
+                    </span>
                 </div>
             </div>
             <React.Fragment>

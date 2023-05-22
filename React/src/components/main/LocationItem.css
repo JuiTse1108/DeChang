@@ -1,9 +1,11 @@
 .mapContainer {
     width: 100%;
+    border:1px solid lightcoral
 }
 
 #map {
-    margin: auto;
-    width: 960px;
-    height: 540px;
+    float: right;
+    width: 600px;
+    height: 400px;
+    margin-top: 20px;
 }

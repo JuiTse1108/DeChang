@@ -48,7 +48,10 @@
     text-align: end;
 }
 
-.bi {
+.bi-facebook,
+.bi-instagram,
+.bi-twitter,
+.bi-line {
     font-size: 20px;
 }
 

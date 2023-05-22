@@ -6,6 +6,8 @@ function Main(props) {
     function handlePathClick(paths) {
         if (paths === 'location') {
             setAttribute('location')
+        } else if (paths === 'about') {
+            setAttribute('menu')
         } else if (paths === 'menu') {
             setAttribute('menu')
         } else {

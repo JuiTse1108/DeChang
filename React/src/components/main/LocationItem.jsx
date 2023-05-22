@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
 import Geocode from "react-geocode";
 import './LocationItem.css'
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function LocationItem() {
     // 載入geocode，取得使用者當前位置及設定為座標渲染至地圖
@@ -46,21 +47,23 @@ function LocationItem() {
         lng: currentLocation.lng
     }
 
-    //載入路線服務與路線顯示圖層
     
+
     return (
-        <div className='mapContainer'>
-            <LoadScript googleMapsApiKey={apiKey}>
-                <GoogleMap
-                    center={currentLocation}
-                    zoom={10}
-                    id='map'
-                    onLoad={() => { }}
-                >
-                    {currentLocation.lat && currentLocation.lng && <Marker position={currentLocation} />}
-                </GoogleMap>
-            </LoadScript>
-        </div>
+        <React.Fragment>
+            <div className='mapContainer'>
+                <LoadScript googleMapsApiKey={apiKey}>
+                    <GoogleMap
+                        center={currentLocation}
+                        zoom={10}
+                        id='map'
+                        onLoad={() => { }}
+                    >
+                        {currentLocation.lat && currentLocation.lng && <Marker position={currentLocation} />}
+                    </GoogleMap>
+                </LoadScript>
+            </div>
+        </React.Fragment>
     );
 }
 

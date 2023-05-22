@@ -2,20 +2,49 @@
     width: 100%;
 }
 
-.cardBox {
+.card {
+    width: 100%;
+    margin-top: 40px;
     display: flex;
-    border: 1px solid white;
-}
-
-.imgBox {
-   
 }
 
 .cardImage {
+    width: 50%;
+}
+
+img {
     width: 100%;
 }
 
-.textBox {
-    
-    border: 1px solid white;
+.cardInfo {
+    width: 60%;
+    background-color: rgb(254, 248, 241);
+}
+
+.cardTitle {
+    width: 100%;
+    font-size: 18px;
+    font-family: title-sans-serif;
+    color: rgb(214, 150, 53);
+    padding: 5px 50px;
+    position: relative;
+    top: 60px
+}
+
+.cardTitle:nth-child(2) {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: custom-sans-serif;
+    margin-bottom: 80px;
+    color: rgb(0,0,0);
+}
+
+.cardText {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(50, 45, 45);
+    margin-top: 5px;
+    padding: 0px 50px;
+    position: relative;
+    top: 0px;
 }

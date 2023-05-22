@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import "./ContactItem.css"
 
@@ -9,6 +9,13 @@ function ContactItem() {
 
         // }
     });
+
+    //日期選擇器
+    const inputRef = useRef(null);
+
+    const handleDateClick = () => {
+        inputRef.current.click()
+    };
 
     //將使用者輸入的資料存在sessionStorage
     const [Topic, setTopic] = useState(sessionStorage.getItem('topic') || '')
@@ -145,9 +152,13 @@ function ContactItem() {
                             type="datetime-local"
                             className="datetime"
                             value={DateTime}
+                            ref={inputRef}
                             onChange={handleDateTimeInput}
                         />
-                        <i className="bi bi-calendar-event"></i>
+                        <i
+                            className="bi bi-calendar-event"
+                            onClick={handleDateClick}
+                        ></i>
                         <p className="message">{errors.datetime?.message}</p>
                     </div>
                     <div className="formBox">

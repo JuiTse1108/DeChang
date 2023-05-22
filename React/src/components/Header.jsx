@@ -6,6 +6,8 @@ function Header(props) {
     function handlePathClick(paths) {
         if (paths === 'location') {
             setAttribute('location')
+        } else if (paths === 'about') {
+            setAttribute('menu')
         } else if (paths === 'menu') {
             setAttribute('menu')
         } else {
@@ -22,6 +24,9 @@ function Header(props) {
             <ul className='navMenu'>
                 <li className="navItem">
                     <a href="/location" className='navLink'>Location</a>
+                </li>
+                <li className="navItem">
+                    <a href="/about" className='navLink'>About Us</a>
                 </li>
                 <li className="navItem">
                     <a href="/menu" className='navLink'>Menu</a>

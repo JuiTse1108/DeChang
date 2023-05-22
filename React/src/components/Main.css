@@ -15,13 +15,13 @@
 /* 英文 */
 @font-face {
     font-family: custom-sans-serif;
-    src: url(../templates/fonts/Avenir-Roman.ttf);
+    src: url(../templates/fonts/Avenir.ttf);
     unicode-range: U+00-024F;
 }
 
 @font-face {
-    font-family: logo-sans-serif;
-    src: url(../templates/fonts/centaur.ttf);
+    font-family: title-sans-serif;
+    src: url(../templates/fonts/Roboto.ttf)
 }
 
 @font-face {
