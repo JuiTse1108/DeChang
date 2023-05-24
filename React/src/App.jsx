@@ -6,6 +6,7 @@ import Menu from './pages/Menu'
 import Contact from './pages/Contact'
 
 function App() {
+  
   return (
     <Router>
       <Routes>

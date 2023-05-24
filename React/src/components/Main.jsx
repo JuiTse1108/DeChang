@@ -3,6 +3,7 @@ import './main.css'
 
 function Main(props) {
     const [attribute, setAttribute] = useState('home')
+    
     function handlePathClick(paths) {
         if (paths === 'location') {
             setAttribute('location')
