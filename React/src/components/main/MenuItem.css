@@ -132,7 +132,7 @@
 .mainImageBox {
     width: 70%;
     height: 60vh;
-    background-image: url(../src/templates/image/main.jpg);
+    background-image: url(../src/templates/image/Main.jpg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -142,7 +142,7 @@
 .dessertImageBox {
     width: 70%;
     height: 60vh;
-    background-image: url(../src/templates/image/dessert.jpg);
+    background-image: url(../src/templates/image/Dessert.jpg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -152,7 +152,7 @@
 .cocktailsImageBox {
     width: 70%;
     height: 60vh;
-    background-image: url(../src/templates/image/cocktail.jpg);
+    background-image: url(../src/templates/image/Cocktail.jpg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -201,7 +201,7 @@
 .mainNote {
     font-size: 14px;
     font-weight: bold;
-    color: rgb(195, 151, 151);
+    color: rgb(192, 218, 121);
     position: absolute;
     right: 0;
 }

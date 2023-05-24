@@ -213,8 +213,8 @@ function MenuItem() {
                     </div>
                     <div className='cocktailsItem'>
                         <p className='cocktailsName'>NOTES FROM GORDON</p>
-                        <p className='cocktailsPrice'>plymouth dry gin, green tea, lemongrass, peach, lemon, message from Gordon</p>
-                        <p className='cocktailsContent'>$ 20.95</p>
+                        <p className='cocktailsPrice'>$ 20.95</p>
+                        <p className='cocktailsContent'>plymouth dry gin, green tea, lemongrass, peach, lemon, message from Gordon</p>
                     </div>
                     <div className='cocktailsItem'>
                         <p className='cocktailsName'>FEAR & LOATHING</p>
