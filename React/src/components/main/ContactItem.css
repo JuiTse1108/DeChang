@@ -193,6 +193,7 @@ label[for="uploadButton"]::after {
 .submitButton {
     font-weight: bold;
     margin: auto;
+    margin-bottom: 20vh;
     padding: 10px 20px;
     outline: none;
     color: rgb(0, 0, 0);
