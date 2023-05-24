@@ -1,20 +1,8 @@
 import React, {useState} from 'react';
 import './Header.css'
 
-function Header(props) {
-    const [attribute, setAttribute] = useState('home')
-    function handlePathClick(paths) {
-        if (paths === 'location') {
-            setAttribute('location')
-        } else if (paths === 'about') {
-            setAttribute('menu')
-        } else if (paths === 'menu') {
-            setAttribute('menu')
-        } else {
-            setAttribute('contact')
-        }
-    }
-
+function Header() {
+    
     return ( 
       <header className="header">
         <nav className="nav">

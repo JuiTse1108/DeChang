@@ -1,11 +1,12 @@
 .contactContainer {
     width: 100%;
+    position: relative;
 }
 
 .information {
     text-align: center;
     font-size: 30px;
-    margin-bottom: 20px;
+    margin:20vh auto 20px;
 }
 
 .formElement {
@@ -127,7 +128,7 @@ label[for="uploadButton"]::after {
 
 .datetimeContainer>.bi-calendar-event {
     position: absolute;
-    top: 47.5px;
+    top: 50px;
     right: 10px;
 }
 

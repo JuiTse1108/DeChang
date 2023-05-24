@@ -1,5 +1,6 @@
 .homeContainer {
     width: 100%;
+    position: relative;
 }
 /* about的介紹*/
 .aboutCard {
