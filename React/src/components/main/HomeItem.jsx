@@ -91,6 +91,17 @@ function HomeItem() {
                     </div>
                 </div>
             </div>
+            <div className='locationCard'>
+                <div className='locationTitleBox'>
+                    <div className='locationTitle'>Reservation</div>
+                    <div className='locationTitle'>Book Your Table</div>
+                    <div className='locationCardButton'>
+                        <a
+                            href="./location"
+                        >Online Booking</a>
+                    </div>
+                </div>
+            </div>
         </div >
     );
 }
