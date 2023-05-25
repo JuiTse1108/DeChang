@@ -47,21 +47,26 @@ function LocationItem() {
         lng: currentLocation.lng
     }
 
-    
+
 
     return (
         <React.Fragment>
             <div className='mapContainer'>
-                <LoadScript googleMapsApiKey={apiKey}>
-                    <GoogleMap
-                        center={currentLocation}
-                        zoom={10}
-                        id='map'
-                        onLoad={() => { }}
-                    >
-                        {currentLocation.lat && currentLocation.lng && <Marker position={currentLocation} />}
-                    </GoogleMap>
-                </LoadScript>
+                <div className='mapBox'>
+                    <LoadScript googleMapsApiKey={apiKey}>
+                        <GoogleMap
+                            center={currentLocation}
+                            zoom={12}
+                            id='map'
+                            onLoad={() => { }}
+                        >
+                            {currentLocation.lat && currentLocation.lng && <Marker position={currentLocation} />}
+                        </GoogleMap>
+                    </LoadScript>
+                    <hr 
+                        className='gap'
+                    />
+                </div>
             </div>
         </React.Fragment>
     );

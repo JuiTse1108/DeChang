@@ -1,12 +1,21 @@
 .mapContainer {
     width: 100%;
     position: relative;
-    border:1px solid lightcoral
+}
+
+.mapBox {
+    margin-top: 20vh;
+    padding: 20px;
+    /* border: 1px solid white; */
 }
 
 #map {
-    float: right;
-    width: 600px;
+    width: 80%;
     height: 400px;
-    margin-top: 20px;
+    margin: auto;
+}
+
+.gap {
+    margin: 30px auto;
+    /* border: 1px solid rgb(206, 176, 113); */
 }
