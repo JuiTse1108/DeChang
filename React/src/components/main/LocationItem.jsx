@@ -5,8 +5,7 @@ import './LocationItem.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function LocationItem() {
-    // 載入geocode，取得使用者當前位置及設定為座標渲染至地圖
-    const apiKey = import.meta.env.VITE_API_KEY
+    const apiKey = import.meta.env.VITE_API_KEY;
     Geocode.setApiKey(apiKey);
     Geocode.setLanguage('zh-TW');
     Geocode.setRegion("tw");
@@ -33,11 +32,9 @@ function LocationItem() {
             await getLocation();
         };
 
-        // 偵聽地圖載入完成事件
         window.addEventListener("load", loadMap);
 
         return () => {
-            // 清除事件監聽器
             window.removeEventListener("load", loadMap);
         };
     }, []);
@@ -45,9 +42,7 @@ function LocationItem() {
     const center = {
         lat: currentLocation.lat,
         lng: currentLocation.lng
-    }
-
-
+    };
 
     return (
         <React.Fragment>
@@ -55,21 +50,22 @@ function LocationItem() {
                 <div className='mapBox'>
                     <LoadScript googleMapsApiKey={apiKey}>
                         <GoogleMap
-                            center={currentLocation}
+                            center={center.lat && center.lng ? center : undefined}
                             zoom={12}
                             id='map'
                             onLoad={() => { }}
                         >
-                            {currentLocation.lat && currentLocation.lng && <Marker position={currentLocation} />}
+                            {currentLocation.lat && currentLocation.lng && (
+                                <Marker position={currentLocation} />
+                            )}
                         </GoogleMap>
                     </LoadScript>
-                    <hr 
-                        className='gap'
-                    />
+                    <hr className='gap' />
                 </div>
             </div>
         </React.Fragment>
     );
 }
+
 
 export default LocationItem;

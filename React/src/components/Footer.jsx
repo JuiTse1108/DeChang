@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Footer.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Geocode from "react-geocode";
@@ -10,8 +10,8 @@ function Footer() {
         Geocode.setApiKey(apiKey);
         Geocode.setLanguage('zh-TW');
         Geocode.setRegion("tw");
-        
         const center = '台北市信義區市府路45號';
+
         Geocode.fromAddress(center).then(
             (response) => {
                 const { lat, lng } = response.results[0].geometry.location;
@@ -19,10 +19,10 @@ function Footer() {
                 const size = 'width=800,height=600';
                 const left = (screen.width / 2) - (800 / 2);
                 const top = (screen.height / 2) - (600 / 2);
-                window.open(mapUrl, "_blank",`${size},left=${left},top=${top}`);
+                window.open(mapUrl, "_blank", `${size},left=${left},top=${top}`);
             },
             (error) => {
-              console.error(error);
+                console.error(error);
             }
         )
     }
