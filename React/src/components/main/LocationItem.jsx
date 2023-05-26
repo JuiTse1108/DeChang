@@ -47,20 +47,41 @@ function LocationItem() {
     return (
         <React.Fragment>
             <div className='mapContainer'>
-                <div className='mapBox'>
-                    <LoadScript googleMapsApiKey={apiKey}>
-                        <GoogleMap
-                            center={center.lat && center.lng ? center : undefined}
-                            zoom={12}
-                            id='map'
-                            onLoad={() => { }}
-                        >
-                            {currentLocation.lat && currentLocation.lng && (
-                                <Marker position={currentLocation} />
-                            )}
-                        </GoogleMap>
-                    </LoadScript>
-                    <hr className='gap' />
+                <div className='storeInfo'>
+                    <div className='storeBox'>
+                        <div className='storeItem'>
+                            <i className="bi bi-shop"></i>Name</div>
+                        <div className='storeItem'>
+                            <i className="bi bi-pin-map-fill"></i>Address</div>
+                        <div className='storeItem'>
+                            <i className="bi bi-telephone-fill"></i>Phone</div>
+                        <div className='storeItem'>
+                            <i className="bi bi-clock-fill"></i>Opening Hours
+                            <div className='dayBox'>
+                                <div className='day'>Mon<span className='time'></span></div>
+                                <div className='day'>Tue<span className='time'></span></div>
+                                <div className='day'>Wed<span className='time'></span></div>
+                                <div className='day'>Thu<span className='time'></span></div>
+                                <div className='day'>Fri<span className='time'></span></div>
+                                <div className='day'>Sat<span className='time'></span></div>
+                                <div className='day'>Sun<span className='time'></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='mapBox'>
+                        <LoadScript googleMapsApiKey={apiKey}>
+                            <GoogleMap
+                                center={center.lat && center.lng ? center : undefined}
+                                zoom={7}
+                                id='map'
+                                onLoad={() => { }}
+                            >
+                                {currentLocation.lat && currentLocation.lng && (
+                                    <Marker position={currentLocation} />
+                                )}
+                            </GoogleMap>
+                        </LoadScript>
+                    </div>
                 </div>
             </div>
         </React.Fragment>

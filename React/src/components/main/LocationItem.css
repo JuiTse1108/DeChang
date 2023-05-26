@@ -3,23 +3,51 @@
     position: relative;
 }
 
-.mapBox {
+.storeInfo {
     margin-top: 20vh;
     padding: 20px;
-    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
 }
 
+.storeBox {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.storeItem {
+    font-size: 16px;
+    margin: 10px 0px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.storeItem>i {
+    margin-right: 10px;
+}
+
+.dayBox {
+    margin-top: 30px;
+}
+
+.day {
+    font-size: 14px;
+    font-weight: bold;
+    margin:10px 0px;
+}
+
+.mapBox {
+    margin-left: auto;
+}
 #map {
-    width: 80%;
+    width: 600px;
     height: 400px;
-    margin: auto;
 }
 
-.gmoprint>* {
-    color: black
-}
-
-.gap {
-    margin: 30px auto;
-    /* border: 1px solid rgb(206, 176, 113); */
+.bi-shop,
+.bi-pin-map-fill,
+.bi-telephone-fill,
+.bi-clock-fill {
+    font-size: 20px;
 }
