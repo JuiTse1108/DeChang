@@ -10,13 +10,6 @@ function ContactItem() {
         // }
     });
 
-    //日期選擇器
-    const inputRef = useRef(null);
-
-    const handleDateClick = () => {
-        inputRef.current.click()
-    };
-
     //將使用者輸入的資料存在sessionStorage
     const [Topic, setTopic] = useState(sessionStorage.getItem('topic') || '')
     const [Restaurant, setRestaurant] = useState(sessionStorage.getItem('restaurant') || '')
@@ -28,31 +21,31 @@ function ContactItem() {
     const [UploadName, setUploadName] = useState(sessionStorage.getItem('upload') || '未選擇任何檔案')
     const [Message, setMessage] = useState(sessionStorage.getItem('message') || '')
 
-    function handleTopicInput(event) {
+    const handleTopicInput = (event) => {
         const Value = event.target.value
         setTopic(Value)
         sessionStorage.setItem('topic', Value)
     }
 
-    function handleRestaurantInput(event) {
+    const handleRestaurantInput = (event) => {
         const Value = event.target.value
         setRestaurant(Value)
         sessionStorage.setItem('restaurant', Value)
     }
 
-    function handleDateTimeInput(event) {
+    const handleDateTimeInput = (event) => {
         const Value = event.target.value
         setDateTime(Value)
         sessionStorage.setItem('datetime', Value)
     }
 
-    function handleNameInput(event) {
+    const handleNameInput = (event) => {
         const Value = event.target.value
         setName(Value)
         sessionStorage.setItem('name', Value)
     }
 
-    function handlePhoneInput(event) {
+    const handlePhoneInput = (event) => {
         const Value = event.target.value
         if (/^\d*$/.test(Value)) {
             setPhone(Value)
@@ -61,31 +54,35 @@ function ContactItem() {
 
     }
 
-    function handleEmailInput(event) {
+    const handleEmailInput = (event) => {
         const Value = event.target.value
         setEmail(Value)
         sessionStorage.setItem('email', Value)
 
     }
 
-    function handleAddressInput(event) {
+    const handleAddressInput = (event) => {
         const Value = event.target.value
         setAddress(Value)
         sessionStorage.setItem('address', Value)
     }
 
-    function handleUploadInput(event) {
+    const handleUploadInput = (event) => {
         const file = event.target.files[0];
-        if (file) {
-            setUploadName(file.name)
-            sessionStorage.setItem('upload', file.name)
-        } else {
-            setUploadName('未選擇任何檔案');
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            if (file) {
+                setUploadName(file.name)
+                sessionStorage.setItem('upload', file.name)
+            } else {
+                setUploadName('未選擇任何檔案');
+            }
         }
     }
 
     const maxLength = 500
-    function handleMessageInput(event) {
+    const handleMessageInput = (event) => {
         const Value = event.target.value
         if (Value.length <= maxLength) {
             setMessage(Value)
@@ -97,12 +94,9 @@ function ContactItem() {
         <div className="contactContainer">
             <div className="information">Information</div>
             <form
-                action="/api"
+                action="/upload"
                 encType="multipart/form-data"
-                onSubmit={handleSubmit((data) => {
-                    console.log(data)
-                })}
-            // onClick={handleClick}
+                onSubmit={handleSubmit}
             >
                 <div className="formElement">
                     <label htmlFor="topic">Topic</label>
@@ -157,12 +151,10 @@ function ContactItem() {
                             name="datetime"
                             id="datetime"
                             value={DateTime}
-                            ref={inputRef}
                             onChange={handleDateTimeInput}
                         />
                         <i
                             className="bi bi-calendar-event"
-                            onClick={handleDateClick}
                         ></i>
                         <p className="message">{errors.datetime?.message}</p>
                     </div>

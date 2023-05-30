@@ -137,7 +137,11 @@ label[for="uploadButton"]::after {
 }
 
 .datetime::-webkit-calendar-picker-indicator {
-    display: none;
+    z-index: 9999;
+    cursor: pointer;
+    position: relative;
+    top:1px;
+    right: 5px;
 }
 
 .datetime {

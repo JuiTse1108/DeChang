@@ -8,7 +8,6 @@
     padding: 20px;
     display: flex;
     align-items: center;
-    border: 1px solid white;
 }
 
 .storeBox {
@@ -16,9 +15,16 @@
     margin-right: 10px;
 }
 
+.siteItem {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 20px;
+    color:rgb(211, 211, 211)
+}
+
 .storeItem {
     font-size: 16px;
-    margin: 10px 0px;
+    margin: 40px 0px;
     padding: 10px;
     font-weight: bold;
 }
@@ -28,20 +34,30 @@
 }
 
 .dayBox {
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .day {
     font-size: 14px;
     font-weight: bold;
-    margin:10px 0px;
+    margin:10px 20px;
+    position: relative;
+}
+
+.time {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 30px;
+    color: rgb(211, 211, 211);
+    position: absolute;
+    left: 100px;
 }
 
 .mapBox {
     margin-left: auto;
 }
 #map {
-    width: 600px;
+    width: 500px;
     height: 400px;
 }
 

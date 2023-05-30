@@ -1,47 +1,58 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, Marker, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import Geocode from "react-geocode";
+import mapData from "../../../assets/data/map.json"
 import './LocationItem.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function LocationItem() {
+    const [markers, setMarkers] = useState('');
+    const [TheLocation, setTheLocation] = useState('');
+
+    //Google Map標記餐廳位置
     const apiKey = import.meta.env.VITE_API_KEY;
     Geocode.setApiKey(apiKey);
     Geocode.setLanguage('zh-TW');
     Geocode.setRegion("tw");
-    const [currentLocation, setCurrentLocation] = useState({ lat: null, lng: null });
 
     useEffect(() => {
-        const getLocation = async () => {
-            try {
-                const position = await getCurrentPosition();
-                const { latitude, longitude } = position.coords;
-                setCurrentLocation({ lat: latitude, lng: longitude });
-            } catch (error) {
-                console.error(error);
-            }
+        // 異步操作，載入地圖資料並設置標記
+        const loadMapData = async () => {
+            Geocode.setApiKey(apiKey);
+            Geocode.setLanguage('zh-TW');
+            Geocode.setRegion('tw');
+
+            const loadedMarkers = await Promise.all(
+                mapData.records.map(async (record) => {
+                    const response = await Geocode.fromLatLng(
+                        parseFloat(record.latitude),
+                        parseFloat(record.longitude)
+                    );
+                    const address = response.results[0].formatted_address;
+
+                    return {
+                        sitename: record.sitename,
+                        latitude: parseFloat(record.latitude),
+                        longitude: parseFloat(record.longitude),
+                        address: address,
+                        telephone: record.telephone,
+                    };
+                })
+            );
+
+            setMarkers(loadedMarkers);
         };
 
-        const getCurrentPosition = () => {
-            return new Promise((resolve, reject) => {
-                navigator.geolocation.getCurrentPosition(resolve, reject);
-            });
-        };
-
-        const loadMap = async () => {
-            await getLocation();
-        };
-
-        window.addEventListener("load", loadMap);
-
-        return () => {
-            window.removeEventListener("load", loadMap);
-        };
-    }, []);
+        loadMapData();
+    }, [apiKey]);
 
     const center = {
-        lat: currentLocation.lat,
-        lng: currentLocation.lng
+        lat: 23.97565,
+        lng: 120.9738819,
+    };
+
+    const handleMarkerClick = (location) => {
+        setTheLocation(location);
     };
 
     return (
@@ -50,39 +61,44 @@ function LocationItem() {
                 <div className='storeInfo'>
                     <div className='storeBox'>
                         <div className='storeItem'>
-                            <i className="bi bi-shop"></i>Name</div>
+                            <i className="bi bi-shop"></i>Name : <span className="siteItem">{TheLocation.sitename}</span></div>
                         <div className='storeItem'>
-                            <i className="bi bi-pin-map-fill"></i>Address</div>
+                            <i className="bi bi-pin-map-fill"></i>Address : <span className="siteItem">{TheLocation.address}</span></div>
                         <div className='storeItem'>
-                            <i className="bi bi-telephone-fill"></i>Phone</div>
+                            <i className="bi bi-telephone-fill"></i>Phone : <span className="siteItem">{TheLocation.telephone}</span></div>
                         <div className='storeItem'>
                             <i className="bi bi-clock-fill"></i>Opening Hours
                             <div className='dayBox'>
-                                <div className='day'>Mon<span className='time'></span></div>
-                                <div className='day'>Tue<span className='time'></span></div>
-                                <div className='day'>Wed<span className='time'></span></div>
-                                <div className='day'>Thu<span className='time'></span></div>
-                                <div className='day'>Fri<span className='time'></span></div>
-                                <div className='day'>Sat<span className='time'></span></div>
-                                <div className='day'>Sun<span className='time'></span></div>
+                                <div className='day'>Mon - Fri<span className='time'>10:30 ~ 22:00</span></div>
+                                <div className='day'>Sat<span className='time'>10:00 ~ 23:00</span></div>
+                                <div className='day'>Sun<span className='time'>10:00 ~ 21:30</span></div>
                             </div>
                         </div>
                     </div>
                     <div className='mapBox'>
                         <LoadScript googleMapsApiKey={apiKey}>
                             <GoogleMap
-                                center={center.lat && center.lng ? center : undefined}
+                                center={center}
                                 zoom={7}
+                                options={{
+                                    mapTypeControl: false,
+                                    streetViewControl: false,
+                                }}
                                 id='map'
                                 onLoad={() => { }}
                             >
-                                {currentLocation.lat && currentLocation.lng && (
-                                    <Marker position={currentLocation} />
-                                )}
+                                {Array.from(markers).map((marker) => (
+                                    <Marker
+                                        key={marker.sitename}
+                                        position={{ lat: marker.latitude, lng: marker.longitude }}
+                                        onClick={() => handleMarkerClick(marker)}
+                                    />
+                                ))}
                             </GoogleMap>
                         </LoadScript>
                     </div>
                 </div>
+
             </div>
         </React.Fragment>
     );
