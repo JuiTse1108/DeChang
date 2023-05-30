@@ -22,6 +22,10 @@
     cursor: pointer;
 }
 
+.footernavLink:hover {
+    opacity: 0.8;
+}
+
 .info {
     margin-left: 40px;
     padding: 10px;

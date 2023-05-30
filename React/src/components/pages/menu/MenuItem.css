@@ -121,6 +121,7 @@
     align-items: center;
     background-color: rgba(211, 211, 211,0.2);
     border-radius: 30px;
+    margin: 60px auto;
 }
 
 .dessertHighlight,
@@ -131,13 +132,13 @@
     align-items: center;
     background-color: rgba(211, 211, 211,0.2);
     border-radius: 30px;
-    margin-top: 20px;
+    margin: 60px auto;
 }
 
 .mainImageBox {
     width: 70%;
     height: 60vh;
-    background-image: url(../src/templates/image/Main.jpg);
+    background-image: url('./../assets/image/main.jpg');
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -147,7 +148,7 @@
 .dessertImageBox {
     width: 70%;
     height: 60vh;
-    background-image: url(../src/templates/image/Dessert.jpg);
+    background-image: url('./../assets/image/dessert.jpg');
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -157,7 +158,7 @@
 .cocktailsImageBox {
     width: 70%;
     height: 60vh;
-    background-image: url(../src/templates/image/Cocktail.jpg);
+    background-image: url('./../assets/image/cocktail.jpg');
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -219,12 +220,13 @@
     color: rgb(192, 136, 136)
 }
 
+.noteBox {
+    margin: 20vh
+}
+
 .menuNote {
     font-size: 12px;
     font-weight: bold;
-    width: 80%;
-    margin: auto;
-    margin-bottom: 20vh;
     line-height: 24px;
     color: rgb(207, 168, 130);
 }

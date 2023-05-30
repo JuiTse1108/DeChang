@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Location from './pages/Location'
-import About from './pages/About'
-import Menu from './pages/Menu'
-import Contact from './pages/Contact'
+import Home from './components/pages/home/Home'
+import Location from './components/pages/location/Location'
+import About from './components/pages/about/About'
+import Menu from './components/pages/menu/Menu'
+import Contact from './components/pages/contact/Contact'
 
 function App() {
-  
+
   return (
     <Router>
       <Routes>

@@ -58,7 +58,7 @@ function ContactItem() {
             setPhone(Value)
             sessionStorage.setItem('phone', Value)
         }
-        
+
     }
 
     function handleEmailInput(event) {
@@ -98,21 +98,23 @@ function ContactItem() {
             <div className="information">Information</div>
             <form
                 action="/api"
+                encType="multipart/form-data"
                 onSubmit={handleSubmit((data) => {
                     console.log(data)
                 })}
             // onClick={handleClick}
             >
                 <div className="formElement">
-                    <label htmlFor="">Topic</label>
+                    <label htmlFor="topic">Topic</label>
                     <select
                         {...register("topic", {
                             required: "請選擇您的主旨"
                         })}
-                        name="topic"
                         className="topic"
-                        onChange={handleTopicInput}
+                        name="topic"
+                        id="topic"
                         value={Topic}
+                        onChange={handleTopicInput}
                     >
                         <option value=""></option>
                         <option value="意見回饋">意見回饋</option>
@@ -123,13 +125,14 @@ function ContactItem() {
                 </div>
 
                 <div className="formElement">
-                    <label htmlFor="">Restaurant</label>
+                    <label htmlFor="restaurant">Restaurant</label>
                     <select
                         {...register("restaurant", {
                             required: "請選擇用餐地點"
                         })}
-                        name="restaurant"
                         className="restaurant"
+                        name="restaurant"
+                        id="restaurant"
                         value={Restaurant}
                         onChange={handleRestaurantInput}
                     >
@@ -144,13 +147,15 @@ function ContactItem() {
 
                 <div className="formElement">
                     <div className="formBox datetimeContainer">
-                        <label htmlFor="">DateTime</label>
+                        <label htmlFor="datetime">DateTime</label>
                         <input
                             {...register("datetime", {
                                 required: "請選擇用餐日期"
                             })}
                             type="datetime-local"
                             className="datetime"
+                            name="datetime"
+                            id="datetime"
                             value={DateTime}
                             ref={inputRef}
                             onChange={handleDateTimeInput}
@@ -162,7 +167,7 @@ function ContactItem() {
                         <p className="message">{errors.datetime?.message}</p>
                     </div>
                     <div className="formBox">
-                        <label htmlFor="">Name</label>
+                        <label htmlFor="name">Name</label>
                         <input
                             {...register("name", {
                                 required: "請填寫您的姓名",
@@ -172,6 +177,8 @@ function ContactItem() {
                             })}
                             type="text"
                             className="name"
+                            name="name"
+                            id="name"
                             value={Name}
                             maxLength={50}
                             onChange={handleNameInput}
@@ -182,7 +189,7 @@ function ContactItem() {
 
                 <div className="formElement">
                     <div className="formBox">
-                        <label htmlFor="">Phone</label>
+                        <label htmlFor="phone">Phone</label>
                         <input
                             {...register("phone", {
                                 required: "請填寫您的電話",
@@ -192,6 +199,8 @@ function ContactItem() {
                             })}
                             type="tel"
                             className="phone"
+                            name="phone"
+                            id="phone"
                             value={Phone}
                             onChange={handlePhoneInput}
                             pattern="[0]{1}[0-9]{9}"
@@ -201,13 +210,15 @@ function ContactItem() {
                     </div>
 
                     <div className="formBox">
-                        <label htmlFor="">Email</label>
+                        <label htmlFor="email">Email</label>
                         <input
                             {...register("email", {
                                 required: "請填寫您的信箱"
                             })}
                             type="email"
                             className="email"
+                            name="email"
+                            id="email"
                             value={Email}
                             onChange={handleEmailInput}
                         />
@@ -222,6 +233,8 @@ function ContactItem() {
                             {...register("address")}
                             type="text"
                             className="address"
+                            name="address"
+                            id="address"
                             value={Address}
                             onChange={handleAddressInput}
                         />
@@ -236,6 +249,7 @@ function ContactItem() {
                                 {...register("upload")}
                                 type="file"
                                 accept="image/*"
+                                name="uploadButton"
                                 id="uploadButton"
                                 onChange={handleUploadInput}
                             />

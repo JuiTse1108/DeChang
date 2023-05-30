@@ -151,15 +151,6 @@ function MenuItem() {
     function Dessert() {
         return (
             <React.Fragment>
-                <div className='dessertHighlight'>
-                    <div className='dessertImageBox'></div>
-                    <div className='dessertImageInfo'>
-                        <p className='highlight'>HighLight</p>
-                        <p className='dessertImageName'>STICKY TOFFEE PUDDING</p>
-                        <p className='dessertImageContent'>dulce de leche ice cream</p>
-                        <p className='dessertImagePrice'>$ 15.95</p>
-                    </div>
-                </div>
                 <div className='dessertBox'>
                     <div className='dessertTitle'>Dessert</div>
                     <div className='dessertItem'>
@@ -182,6 +173,15 @@ function MenuItem() {
                         <p className='dessertPrice'>$ 15.95</p>
                         <p className='dessertContent'>coconut sorbet, passion fruit caramel, coconut cake</p>
                     </div>
+                    <div className='dessertHighlight'>
+                        <div className='dessertImageBox'></div>
+                        <div className='dessertImageInfo'>
+                            <p className='highlight'>HighLight</p>
+                            <p className='dessertImageName'>STICKY TOFFEE PUDDING</p>
+                            <p className='dessertImageContent'>dulce de leche ice cream</p>
+                            <p className='dessertImagePrice'>$ 15.95</p>
+                        </div>
+                    </div>
                 </div>
             </React.Fragment>
         )
@@ -190,15 +190,6 @@ function MenuItem() {
     function Cocktails() {
         return (
             <React.Fragment>
-                <div className='cocktailsHighlight'>
-                    <div className='cocktailsImageBox'></div>
-                    <div className='cocktailsImageInfo'>
-                        <p className='highlight'>HighLight</p>
-                        <p className='cocktailsImageName'>SMOKE ON THE BLVD</p>
-                        <p className='cocktailsImageContent'>woodford rye, aperol, amaro averna, sweet vermouth, smoked with cherry wood</p>
-                        <p className='cocktailsImagePrice'>$ 21.95</p>
-                    </div>
-                </div>
                 <div className='cocktailsBox'>
                     <div className='cocktailsTitle'>SPECIALTY COCKTAILS</div>
                     <div className='cocktailsItem'>
@@ -241,6 +232,15 @@ function MenuItem() {
                         <p className='cocktailsPrice'>$ 27.95</p>
                         <p className='cocktailsContent'>branson vs phantom cognac, grand marnier, simple syrup, lime, champagne, cinnamon</p>
                     </div>
+                    <div className='cocktailsHighlight'>
+                        <div className='cocktailsImageBox'></div>
+                        <div className='cocktailsImageInfo'>
+                            <p className='highlight'>HighLight</p>
+                            <p className='cocktailsImageName'>SMOKE ON THE BLVD</p>
+                            <p className='cocktailsImageContent'>woodford rye, aperol, amaro averna, sweet vermouth, smoked with cherry wood</p>
+                            <p className='cocktailsImagePrice'>$ 21.95</p>
+                        </div>
+                    </div>
                 </div>
             </React.Fragment>
         )
@@ -277,7 +277,9 @@ function MenuItem() {
             </div>
             <React.Fragment>
                 {contentRender()}
-                <p className='menuNote'>*Consuming raw or undercooked meat, poultry, seafood or eggs may increase your risk of food borne illness, especially in cases of certain medical conditions and pregnancies</p>
+                <div className='noteBox'>
+                    <p className='menuNote'>*Consuming raw or undercooked meat, poultry, seafood or eggs may increase your risk of food borne illness, especially certain medical conditions and pregnancies</p>
+                </div>
             </React.Fragment>
         </div>
     );

@@ -6,7 +6,7 @@ function HomeItem() {
         <div className='homeContainer'>
             <div className='aboutCard'>
                 <div className='aboutImage'>
-                    <img src="./src/templates/image/Steak.jpg" alt="" />
+                    <img src="../src/assets/image/Steak.jpg" alt="" />
                 </div>
                 <div className='aboutInfo'>
                     <div className='aboutTitleBox'>
@@ -42,7 +42,7 @@ function HomeItem() {
                     </div>
                     <div className='menuContent'>
                         <div className='menuImageBox'>
-                            <img src="..\src\templates\image\Pan Seared Scallops.png" alt="" />
+                            <img src="../src/assets/image/Pan Seared Scallops.png" alt="" />
                         </div>
                         <div className='menuTextBox'>
                             <div className='menuTitle2'>Appetizer</div>
@@ -61,12 +61,12 @@ function HomeItem() {
                             <p className='menuText'>while the flesh remains moist and flavorful</p>
                         </div>
                         <div className='menuImageBox'>
-                            <img src="../src/templates/image/Crisoy Skin Salmon.png" alt="" />
+                            <img src="../src/assets/image/Crisoy Skin Salmon.png" alt="" />
                         </div>
                     </div>
                     <div className='menuContent'>
                         <div className='menuImageBox'>
-                            <img src="..\src\templates\image\Sticky Toffee Pudding.png" alt="" />
+                            <img src="../src/assets/image/Sticky Toffee Pudding.png" alt="" />
                         </div>
                         <div className='menuTextBox'>
                             <div className='menuTitle2'>Dessert</div>
@@ -86,7 +86,7 @@ function HomeItem() {
                             <p className='menuText'>a refreshing aroma and subtle herbal notes</p>
                         </div>
                         <div className='menuImageBox'>
-                            <img src="../src/templates/image/Notes From Gordon.png" alt="" />
+                            <img src="../src/assets/image/Notes From Gordon.png" alt="" />
                         </div>
                     </div>
                 </div>

@@ -1,27 +1,27 @@
 /* 數字 */
 @font-face {
     font-family: custom-sans-serif;
-    src: url(../templates/fonts/HelveticaNeueBold.ttf);
+    src: url(../../assets/fonts/HelveticaNeueBold.ttf);
     unicode-range: U+0030-0039;
 }
 
 /* 中文 */
 @font-face {
     font-family: custom-sans-serif;
-    src: url(../templates/fonts/ChiuKongGothic.ttf);
+    src: url(../../assets/fonts/ChiuKongGothic.ttf);
     unicode-range: U+4E00-9FFF;
 }
 
 /* 英文 */
 @font-face {
     font-family: custom-sans-serif;
-    src: url(../templates/fonts/Avenir.ttf);
+    src: url(../../assets/fonts/Avenir.ttf);
     unicode-range: U+00-024F;
 }
 
 @font-face {
     font-family: title-sans-serif;
-    src: url(../templates/fonts/Roboto.ttf)
+    src: url(../../assets/fonts/Roboto.ttf)
 }
 
 @font-face {
@@ -52,7 +52,7 @@ main {
 }
 
 .home {
-    background-image: url('../templates/background/main.jpg');
+    background-image: url('../../assets/background/main.jpg');
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 100%;
@@ -61,7 +61,7 @@ main {
 }
 
 .location {
-    background-image: url('../templates/background/location.jpg');
+    background-image: url('../../assets/background/location.jpg');
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 100%;
