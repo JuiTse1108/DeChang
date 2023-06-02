@@ -4,3 +4,15 @@
     margin: 20px auto;
     padding: 20px;
 }
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        width: 400px;
+    }
+}

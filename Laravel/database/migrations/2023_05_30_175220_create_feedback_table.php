@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feedback', function (Blueprint $table) {
+        Schema::create('feedbacks', function (Blueprint $table) {
             $table->string('customer_phone')->primary();
             $table->string('customer_topic');
-            $table->string('customer_retaurant');
+            $table->string('customer_restaurant');
             $table->timestamp('customer_datetime');
             $table->string('customer_name');
             $table->string('customer_email');
             $table->string('customer_address')->nullable();
-            $table->binary('customer_image')->nullable();
+            $table->binary('customer_upload')->nullable();
             $table->string('customer_message');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('feedback');
+        Schema::dropIfExists('feedbacks');
     }
 };

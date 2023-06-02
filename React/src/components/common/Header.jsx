@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './Header.css'
 
 function Header() {
@@ -9,6 +10,7 @@ function Header() {
                 <div className="logo">
                     <a href="/" className='logoLink'>Just Steak</a>
                 </div>
+                <i className="bi bi-list"></i>
                 <ul className='navMenu'>
                     <li className="navItem">
                         <a

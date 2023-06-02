@@ -5,24 +5,33 @@
 
 /* about的介紹*/
 .aboutCard {
-    width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
+    margin: auto;
+}
+
+.aboutCardBox {
+    display: flex;
 }
 
 .aboutImage {
-    width: 50%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .aboutImage>img {
-    width: 100%;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .aboutInfo {
-    width: 50%;
+    flex: 1;
     background-color: rgb(254, 248, 241);
-    padding: 15px 30px;
+    padding: 0px 30px;
 }
 
 .aboutTitle {
@@ -37,7 +46,7 @@
     font-size: 20px;
     font-weight: bold;
     font-family: custom-sans-serif;
-    margin: 20px auto 20px;
+    margin: 20px auto;
     color: rgb(0, 0, 0);
 }
 
@@ -53,7 +62,7 @@
 }
 
 .aboutCardButton {
-    margin: 20px auto 30px;
+    margin: 30px auto;
 }
 
 .aboutCardButton>a {
@@ -69,7 +78,6 @@
 
 /* menu的介紹 */
 .menuCard {
-    width: 100%;
     height: auto;
     display: flex;
     align-items: center;
@@ -115,7 +123,7 @@
     font-size: 20px;
     font-weight: bold;
     font-family: custom-sans-serif;
-    margin: 20px auto 20px;
+    margin: 20px auto;
     color: rgb(255, 255, 255);
 }
 
@@ -158,7 +166,6 @@
 
 /* location的介紹 */
 .locationCard {
-    width: 100%;
     height: 60vh;
     margin: 20vh auto;
     display: flex;
@@ -211,4 +218,69 @@
 .locationCardButton>a:hover {
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 1200px) {
+    .aboutText {
+        font-size: 8px;
+    }
+
+    .menuTextBox {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .aboutCard {
+        height: 30vh;
+    }
+
+    .aboutInfo {
+        display: none;
+    }
+
+    .menuTitleBox1 {
+        width: 100%;
+        text-align: center;
+        padding: 0px;
+    }
+    
+    .menuTextBox {
+        width: 100%;
+    }
+
+    .menuText {
+        font-size: 8px;
+    }
+
+    .menuContent {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .menuImageBox:nth-child(odd) {
+        text-align: center;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .menuTextBox2 {
+        text-align: center;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .menuImageBox:nth-child(even) {
+        text-align: center;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .menuContent:nth-child(even) {
+        flex-direction: column-reverse;
+    }
+
+    .menuTextBox {
+        margin-top: 20px;
+    }
 }

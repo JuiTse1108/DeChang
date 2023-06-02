@@ -1,134 +1,71 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import "./ContactItem.css"
 
-function ContactItem() {
-    //表單驗證
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({
-        // defaultValues: {
-
-        // }
-    });
-
-    //將使用者輸入的資料存在sessionStorage
-    const [Topic, setTopic] = useState(sessionStorage.getItem('topic') || '')
-    const [Restaurant, setRestaurant] = useState(sessionStorage.getItem('restaurant') || '')
-    const [DateTime, setDateTime] = useState(sessionStorage.getItem('datetime') || '')
-    const [Name, setName] = useState(sessionStorage.getItem('name') || '')
-    const [Phone, setPhone] = useState(sessionStorage.getItem('phone') || '')
-    const [Email, setEmail] = useState(sessionStorage.getItem('email') || '')
-    const [Address, setAddress] = useState(sessionStorage.getItem('address') || '')
-    const [UploadName, setUploadName] = useState(sessionStorage.getItem('upload') || '未選擇任何檔案')
-    const [Message, setMessage] = useState(sessionStorage.getItem('message') || '')
-
-    const handleTopicInput = (event) => {
-        const Value = event.target.value
-        setTopic(Value)
-        sessionStorage.setItem('topic', Value)
-    }
-
-    const handleRestaurantInput = (event) => {
-        const Value = event.target.value
-        setRestaurant(Value)
-        sessionStorage.setItem('restaurant', Value)
-    }
-
-    const handleDateTimeInput = (event) => {
-        const Value = event.target.value
-        setDateTime(Value)
-        sessionStorage.setItem('datetime', Value)
-    }
-
-    const handleNameInput = (event) => {
-        const Value = event.target.value
-        setName(Value)
-        sessionStorage.setItem('name', Value)
-    }
-
-    const handlePhoneInput = (event) => {
-        const Value = event.target.value
-        if (/^\d*$/.test(Value)) {
-            setPhone(Value)
-            sessionStorage.setItem('phone', Value)
+function ContectItem() {
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    const formValue = (key, defaultValue) => {
+        const [value, setValue] = useState(sessionStorage.getItem(key) || defaultValue)
+        const handleChange = (newValue) => {
+            setValue(newValue)
+            sessionStorage.setItem(key, newValue)
         }
-
+        return [value, handleChange]
     }
 
-    const handleEmailInput = (event) => {
-        const Value = event.target.value
-        setEmail(Value)
-        sessionStorage.setItem('email', Value)
+    //將輸入的資料放入sessionStorage
+    const [topic, setTopic] = formValue('customer_topic', '');
+    const [restaurant, setRestaurant] = formValue('customer_restaurant', '');
+    const [datetime, setDatetime] = formValue('customer_datetime', '');
+    const [name, setName] = formValue('customer_name', '');
+    const [phone, setPhone] = formValue('customer_phone', '');
+    const [email, setEmail] = formValue('customer_email', '');
+    const [address, setAddress] = formValue('customer_address', '');
+    const [upload, setUpload] = formValue('customer_upload', '');
+    const [message, setMessage] = formValue('customer_message', '');
 
-    }
-
-    const handleAddressInput = (event) => {
-        const Value = event.target.value
-        setAddress(Value)
-        sessionStorage.setItem('address', Value)
-    }
-
-    const handleUploadInput = (event) => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            if (file) {
-                setUploadName(file.name)
-                sessionStorage.setItem('upload', file.name)
-            } else {
-                setUploadName('未選擇任何檔案');
-            }
-        }
-    }
 
     const maxLength = 500
-    const handleMessageInput = (event) => {
-        const Value = event.target.value
-        if (Value.length <= maxLength) {
-            setMessage(Value)
-            sessionStorage.setItem('message', Value)
-        }
-    }
 
     return (
         <div className="contactContainer">
-            <div className="information">Information</div>
             <form
                 action="/upload"
-                encType="multipart/form-data"
-                onSubmit={handleSubmit}
+                onSubmit={handleSubmit((data) => {
+                    sessionStorage.clear()
+                    console.log(data)
+                })}
             >
                 <div className="formElement">
                     <label htmlFor="topic">Topic</label>
                     <select
-                        {...register("topic", {
+                        {...register("customer_topic", {
                             required: "請選擇您的主旨"
                         })}
                         className="topic"
-                        name="topic"
+                        name="customer_topic"
                         id="topic"
-                        value={Topic}
-                        onChange={handleTopicInput}
+                    // onChange={(event) => setTopic(event.target.value)}
                     >
                         <option value=""></option>
                         <option value="意見回饋">意見回饋</option>
                         <option value="求職諮詢">求職諮詢</option>
                         <option value="推薦項目">推薦項目</option>
                     </select>
-                    <p className="message">{errors.topic?.message}</p>
+                    <p className="message">{errors.customer_topic?.message}</p>
                 </div>
 
                 <div className="formElement">
                     <label htmlFor="restaurant">Restaurant</label>
                     <select
-                        {...register("restaurant", {
+                        {...register("customer_restaurant", {
                             required: "請選擇用餐地點"
                         })}
                         className="restaurant"
-                        name="restaurant"
+                        name="customer_restaurant"
                         id="restaurant"
-                        value={Restaurant}
-                        onChange={handleRestaurantInput}
+                    // value={restaurant}
+                    // onChange={(event) => setRestaurant(event.target.value)}
                     >
                         <option value=""></option>
                         <option value="台北101店">台北101店</option>
@@ -136,32 +73,31 @@ function ContactItem() {
                         <option value="台中中港店">台中中港店</option>
                         <option value="高雄夢時代店">高雄夢時代店</option>
                     </select>
-                    <p className="message">{errors.restaurant?.message}</p>
+                    <p className="message">{errors.customer_restaurant?.message}</p>
                 </div>
 
                 <div className="formElement">
                     <div className="formBox datetimeContainer">
                         <label htmlFor="datetime">DateTime</label>
                         <input
-                            {...register("datetime", {
+                            {...register("customer_datetime", {
                                 required: "請選擇用餐日期"
                             })}
                             type="datetime-local"
                             className="datetime"
-                            name="datetime"
+                            name="customer_datetime"
                             id="datetime"
-                            value={DateTime}
-                            onChange={handleDateTimeInput}
+                        // onChange={(event) => setDatetime(event.target.value)}
                         />
                         <i
                             className="bi bi-calendar-event"
                         ></i>
-                        <p className="message">{errors.datetime?.message}</p>
+                        <p className="message">{errors.customer_datetime?.message}</p>
                     </div>
                     <div className="formBox">
                         <label htmlFor="name">Name</label>
                         <input
-                            {...register("name", {
+                            {...register("customer_name", {
                                 required: "請填寫您的姓名",
                                 maxLength: {
                                     value: 50
@@ -169,13 +105,12 @@ function ContactItem() {
                             })}
                             type="text"
                             className="name"
-                            name="name"
+                            name="customer_name"
                             id="name"
-                            value={Name}
+                            // onChange={(event) => setName(event.target.value)}
                             maxLength={50}
-                            onChange={handleNameInput}
                         />
-                        <p className="message">{errors.name?.message}</p>
+                        <p className="message">{errors.customer_name?.message}</p>
                     </div>
                 </div>
 
@@ -183,7 +118,7 @@ function ContactItem() {
                     <div className="formBox">
                         <label htmlFor="phone">Phone</label>
                         <input
-                            {...register("phone", {
+                            {...register("customer_phone", {
                                 required: "請填寫您的電話",
                                 maxLength: {
                                     value: 10
@@ -191,30 +126,28 @@ function ContactItem() {
                             })}
                             type="tel"
                             className="phone"
-                            name="phone"
+                            name="customer_phone"
                             id="phone"
-                            value={Phone}
-                            onChange={handlePhoneInput}
+                            // onChange={(event) => setPhone(event.target.value)}
                             pattern="[0]{1}[0-9]{9}"
                             maxLength={10}
                         />
-                        <p className="message">{errors.phone?.message}</p>
+                        <p className="message">{errors.customer_phone?.message}</p>
                     </div>
 
                     <div className="formBox">
                         <label htmlFor="email">Email</label>
                         <input
-                            {...register("email", {
+                            {...register("customer_email", {
                                 required: "請填寫您的信箱"
                             })}
                             type="email"
                             className="email"
-                            name="email"
+                            name="customer_email"
                             id="email"
-                            value={Email}
-                            onChange={handleEmailInput}
+                        // onChange={(event) => setEmail(event.target.value)}
                         />
-                        <p className="message">{errors.email?.message}</p>
+                        <p className="message">{errors.customer_email?.message}</p>
                     </div>
 
                 </div>
@@ -222,47 +155,45 @@ function ContactItem() {
                     <div className="formBox">
                         <label htmlFor="address">Address</label>
                         <input
-                            {...register("address")}
+                            {...register("customer_address")}
                             type="text"
                             className="address"
-                            name="address"
+                            name="customer_address"
                             id="address"
-                            value={Address}
-                            onChange={handleAddressInput}
+                        // onChange={(event) => setAddress(event.target.value)}
                         />
-                        <p className="noMessage">{errors.email?.message}</p>
+                        <p className="noMessage">{errors.customer_email?.message}</p>
                     </div>
                     <div className="formBox">
                         <label htmlFor="upload">Upload</label>
                         <div className="uploadBox" tabIndex="0">
-                            <p className="uploadName">{UploadName}</p>
-                            <label htmlFor="uploadButton" className="uploadButton">上傳檔案</label>
+                            <p className="uploadName">{upload}</p>
+                            <p className="uploadButton">上傳檔案</p>
                             <input
-                                {...register("upload")}
-                                type="file"
+                                {...register("customer_upload")}
                                 accept="image/*"
-                                name="uploadButton"
-                                id="uploadButton"
-                                onChange={handleUploadInput}
+                                type="file"
+                                name="customer_upload"
+                                id="upload"
+                            // onChange={(event) => setUpload(event.target.value)}
                             />
                         </div>
-                        <p className="noMessage">{errors.email?.message}</p>
+                        <p className="noMessage">{errors.customer_email?.message}</p>
                     </div>
                 </div>
                 <div className="formElement">
                     <label htmlFor="message">Message</label>
                     <textarea
-                        {...register("message", {
+                        {...register("customer_message", {
                             required: "請簡述您的建議"
                         })}
-                        name="message"
+                        name="customer_message"
                         id="message"
+                        // onChange={(event) => setMessage(event.target.value)}
                         maxLength={maxLength}
-                        value={Message}
-                        onChange={handleMessageInput}
                     >
                     </textarea>
-                    <p className="message">{errors.message?.message}</p>
+                    <p className="message">{errors.customer_message?.message}</p>
                 </div>
                 <div className="formElement">
                     <input type="submit" value="submit" className="submitButton" />
@@ -272,4 +203,4 @@ function ContactItem() {
     );
 }
 
-export default ContactItem;
+export default ContectItem;

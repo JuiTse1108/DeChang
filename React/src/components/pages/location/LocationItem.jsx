@@ -8,12 +8,24 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 function LocationItem() {
     const [markers, setMarkers] = useState('');
     const [TheLocation, setTheLocation] = useState('');
-
+    const [currentLocation, setCurrentLocation] = useState('');
     //Google Map標記餐廳位置
     const apiKey = import.meta.env.VITE_API_KEY;
     Geocode.setApiKey(apiKey);
     Geocode.setLanguage('zh-TW');
     Geocode.setRegion("tw");
+
+    const handleCurrentLocation = () => {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                setCurrentLocation({ lat: latitude, lng: longitude });
+            },
+            (error) => {
+                console.error('Error getting user location:', error);
+            }
+        );
+    };
 
     useEffect(() => {
         // 異步操作，載入地圖資料並設置標記
@@ -39,16 +51,20 @@ function LocationItem() {
                     };
                 })
             );
-
             setMarkers(loadedMarkers);
         };
 
+        handleCurrentLocation();
         loadMapData();
     }, [apiKey]);
 
     const center = {
         lat: 23.97565,
         lng: 120.9738819,
+    };
+
+    const mapOptions = {
+        disableDefaultUI: true,
     };
 
     const handleMarkerClick = (location) => {
@@ -69,7 +85,7 @@ function LocationItem() {
                         <div className='storeItem'>
                             <i className="bi bi-clock-fill"></i>Opening Hours
                             <div className='dayBox'>
-                                <div className='day'>Mon - Fri<span className='time'>10:30 ~ 22:00</span></div>
+                                <div className='day'>Mon ~ Fri<span className='time'>10:30 ~ 22:00</span></div>
                                 <div className='day'>Sat<span className='time'>10:00 ~ 23:00</span></div>
                                 <div className='day'>Sun<span className='time'>10:00 ~ 21:30</span></div>
                             </div>
@@ -94,6 +110,23 @@ function LocationItem() {
                                         onClick={() => handleMarkerClick(marker)}
                                     />
                                 ))}
+                                {/* {currentLocation && (
+                                    <Marker
+                                        position={currentLocation}
+                                        icon={{
+                                            path: window.google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                                            fillColor: 'blue',
+                                            fillOpacity: 1,
+                                            strokeColor: 'white',
+                                            strokeWeight: 2,
+                                            scale: 6,
+                                        }}
+                                    />
+                                )} */}
+                                <Marker
+                                    position={currentLocation}
+
+                                />
                             </GoogleMap>
                         </LoadScript>
                     </div>

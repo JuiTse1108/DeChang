@@ -5,24 +5,26 @@ function HomeItem() {
     return (
         <div className='homeContainer'>
             <div className='aboutCard'>
-                <div className='aboutImage'>
-                    <img src="../src/assets/image/Steak.jpg" alt="" />
-                </div>
-                <div className='aboutInfo'>
-                    <div className='aboutTitleBox'>
-                        <p className='aboutTitle'>Discover</p>
-                        <p>Our Story</p>
+                <div className='aboutCardBox'>
+                    <div className='aboutImage'>
+                        <img src="../src/assets/image/Steak.jpg" alt="" />
                     </div>
-                    <div className='aboutTextBox'>
-                        <p className='aboutText'>Uncompromising Quality in Steak</p>
-                        <p className='aboutText'>Featuring the Finest USDA Prime Beef</p>
-                        <p className='aboutText'>Carefully Selected Australian Filet Mignon</p>
-                        <p className='aboutText'>Marinated with Our Exclusive Signature Sauce</p>
-                        <p className='aboutText'>An Unparalleled Flavor Experience</p>
-                        <p className='aboutText'>Let us reintroduce you to the deliciousness of steak.</p>
-                    </div>
-                    <div className='aboutCardButton'>
-                        <a href='/about'>More About Us</a>
+                    <div className='aboutInfo'>
+                        <div className='aboutTitleBox'>
+                            <p className='aboutTitle'>Discover</p>
+                            <p>Our Story</p>
+                        </div>
+                        <div className='aboutTextBox'>
+                            <p className='aboutText'>Uncompromising Quality in Steak</p>
+                            <p className='aboutText'>Featuring the Finest USDA Prime Beef</p>
+                            <p className='aboutText'>Carefully Selected Australian Filet Mignon</p>
+                            <p className='aboutText'>Marinated with Our Exclusive Signature Sauce</p>
+                            <p className='aboutText'>An Unparalleled Flavor Experience</p>
+                            <p className='aboutText'>Let us reintroduce you to the deliciousness of steak.</p>
+                        </div>
+                        <div className='aboutCardButton'>
+                            <a href='/about'>More About Us</a>
+                        </div>
                     </div>
                 </div>
             </div>
