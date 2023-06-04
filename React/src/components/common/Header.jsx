@@ -5,35 +5,40 @@ import './Header.css'
 function Header() {
 
     return (
-        <header className="header">
-            <nav className="nav">
-                <div className="logo">
-                    <a href="/" className='logoLink'>Just Steak</a>
+        <header className='header'>
+            <nav className='nav'>
+                <div className='logo'>
+                    <a href='/' className='logoLink'>Just Steak</a>
                 </div>
-                <i className="bi bi-list"></i>
+                <i className='bi bi-list'></i>
                 <ul className='navMenu'>
-                    <li className="navItem">
+                    <li className='navItem'>
                         <a
-                            href="/location"
+                            href='/location'
                             className='navLink'
-                        // onChange={}
                         >Location</a>
                     </li>
-                    <li className="navItem">
+                    <li className='navItem'>
                         <a
-                            href="/about"
+                            href='/service'
                             className='navLink'
-                        >About Us</a>
+                        >AI Service</a>
                     </li>
-                    <li className="navItem">
+                    <li className='navItem'>
                         <a
-                            href="/menu"
+                            href='/menu'
                             className='navLink'
                         >Menu</a>
                     </li>
-                    <li className="navButton">
+                    <li className='navItem'>
                         <a
-                            href="/location"
+                            href='/about'
+                            className='navLink'
+                        >About Us</a>
+                    </li>
+                    <li className='navButton'>
+                        <a
+                            href='/location'
                             className='navLink'
                         >Book</a>
                     </li>

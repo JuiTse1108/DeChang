@@ -34,6 +34,10 @@
     margin: 20px;
 }
 
+.navLink {
+    font-weight: 400;
+}
+
 .navItem:hover {
     border-bottom: 2px solid rgb(206, 176, 113);
 }
