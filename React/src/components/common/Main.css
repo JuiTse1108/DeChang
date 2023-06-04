@@ -70,24 +70,17 @@ main {
 }
 
 @media screen and (max-width: 1200px) {
+
     .nav {
-        width: 900px;
+        width: calc(90% - 50px);
     }
 
     .footerNav {
-        width: 900px;
+        width: calc(90% - 50px);
     }
 }
 
 @media screen and (max-width: 576px) {
-    /* header */
-    .header {
-        width: 576px;
-    }
-
-    .nav {
-        width: 400px;
-    }
 
     .logo>a {
         font-size: 20px
@@ -102,6 +95,9 @@ main {
         font-size: 24px;
     }
     /* footer */
+    .footer {
+        width: 100%;
+    }
     .footerNav {
         justify-content: center;
     }
@@ -113,3 +109,4 @@ main {
         display: none;
     }    
 }
+

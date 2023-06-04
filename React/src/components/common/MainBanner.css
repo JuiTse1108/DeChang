@@ -36,19 +36,14 @@
 }
 
 @media screen and (max-width: 1200px) {
+    
     .bannerBox {
-        width: 900px;
+        width: calc(90% - 50px);
     }
+
 }
 
 @media screen and (max-width: 576px) {
-    /* .banner  */
-    .banner {
-        width: 576px;
-    }
-    .bannerBox {
-        width: 576px;
-    }
 
     .bannerItem {
         font-size: 30px;
@@ -58,4 +53,5 @@
     .bannerButton {
         margin: auto 20px;
     }
+
 }
