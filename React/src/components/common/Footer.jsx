@@ -6,7 +6,7 @@ import Geocode from "react-geocode";
 function Footer() {
     //點擊取得經緯度
     function handleLinkClick() {
-        const apiKey = import.meta.env.VITE_API_KEY
+        const apiKey = import.meta.env.VITE_GOOGLEMAP_API_KEY
         Geocode.setApiKey(apiKey);
         Geocode.setLanguage('zh-TW');
         Geocode.setRegion("tw");

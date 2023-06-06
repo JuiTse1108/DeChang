@@ -10,7 +10,7 @@
 }
 
 .formElement {
-    width: 80%;
+    width: calc(90% - 50px);
     margin: 10px auto;
     display: flex;
     flex-wrap: wrap;
@@ -23,7 +23,7 @@
 }
 
 .formElement>[for='message'] {
-    width: 80%;
+    width: calc(90% - 50px);
     margin: 10px auto;
 }
 
@@ -41,7 +41,7 @@
 }
 
 #message {
-    width: 80%;
+    width: calc(90% - 50px);
     height: 40vh;
     resize: none;
     margin: auto;
@@ -62,7 +62,7 @@
 }
 
 .formElement:nth-child(6)>p {
-    width: 80%;
+    width: calc(90% - 50px);
     margin: 10px auto;
 }
 

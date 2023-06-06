@@ -7,7 +7,7 @@
 }
 
 .footerNav {
-    width: 1200px;
+    width: calc(90% - 50px);
     margin: auto;
     display: flex;
     align-items: center;
