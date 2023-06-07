@@ -1,3 +1,7 @@
+.main {
+    position: relative;
+}
+
 .homeContainer {
     width: 100%;
     position: relative;

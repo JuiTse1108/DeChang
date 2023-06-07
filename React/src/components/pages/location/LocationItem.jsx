@@ -33,14 +33,20 @@ function LocationItem() {
     const [siteName, setSiteName] = useState('');
     const [address, setAddress] = useState('');
     const [telephone, setTelephone] = useState('');
+    const [userLocation, setUserLocation] = useState(null);
 
     useEffect(() => {
-        async function getData() {
+        const getData = async () => {
             const records = await fetchData();
             setData(records);
         }
+
+        navigator.geolocation.getCurrentPosition((position) => {
+            const { latitude, longitude } = position.coords;
+            setUserLocation({ lat: latitude, lng: longitude });
+        })
         getData();
-    })
+    }, [])
 
     return (
         <React.Fragment>
@@ -71,9 +77,6 @@ function LocationItem() {
                                 id='map'
                                 onLoad={() => { }}
                             >
-                                <Marker
-                                    position={{ lat: center.lat, lng: center.lng }}>
-                                </Marker>
                                 {data.map((location, index) => {
                                     return (
                                         <Marker
@@ -90,6 +93,12 @@ function LocationItem() {
                                         />
                                     )
                                 })}
+                                {userLocation && (
+                                    <Marker
+                                        position={userLocation}
+                                        title={"您的位置"}
+                                    />
+                                )}
                             </GoogleMap>
                         </LoadScript>
                     </div>
