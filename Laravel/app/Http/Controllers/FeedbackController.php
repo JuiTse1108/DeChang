@@ -40,10 +40,10 @@ class FeedbackController extends Controller
         $feedback->customer_phone = $request->input('customer_phone');
         $feedback->customer_email = $request->input('customer_email');
         $feedback->customer_address = $request->input('customer_address');
-        $feedback->customer_upload = $request->input('customer_upload');
+        // $feedback->customer_upload = $request->input('customer_upload');
         $feedback->customer_message = $request->input('customer_message');
         $feedback->save();
-        
+        return response()->json(['message' => '儲存成功'], 200);
 
     }
 

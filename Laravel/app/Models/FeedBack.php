@@ -9,16 +9,17 @@ class Feedback extends Model
 {
     use HasFactory;
     protected $table = 'feedbacks';
-    protected $primaryKey = 'customer_phone';
-    protected $keytype = 'string';
+    // protected $primaryKey = 'id';
+    // protected $keytype = 'string';
     protected $fillable = [
         'customer_topic',
         'customer_restaurant',
         'customer_datetime',
         'customer_name',
+        'customer_phone',
         'customer_email',
         'customer_address',
-        'customer_upload.',
+        // 'customer_upload',
         'customer_message'
     ];
 }
